@@ -68,3 +68,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+my notes: to set up parcel configuration,  testing library, bundlr and evrything else all is done by a single command.
+also provide scripts
+so no need to set up anything.
+create basic app for us
+alo provide HMR(Hot module repalcement)
+also have testing support.
+complete set-up
+
+React is libarry but creat react up kind up create a FW on top of react
+
+we will use tailwind
