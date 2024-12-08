@@ -87,3 +87,23 @@ complete set-up
 React is libarry but creat react up kind up create a FW on top of react
 
 we will use tailwind
+
+# Project structure:
+
+# Features:
+- Login/Signup page
+    - Sign In/ SingUp Form
+    - Redirect to Browse page 
+ - Browse page (after authentication )
+    - Header
+    - Main movie
+        - Tailer in background
+        - Title and description
+        - Movie suggestions 
+            - Movie list * N
+all above when user is logged in
+
+# NetFlix GPT Page
+    - Search bar
+    - Movie suggestions 
+
