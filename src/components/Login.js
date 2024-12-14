@@ -6,6 +6,9 @@ const Login = ()=>{
     const handleSignInForm = ()=>{
         setSignInForm(!signInForm);
     }
+    const handleButtonClick = ()=>{
+        
+    }
         return(
             <div> 
                 <Header />
@@ -31,7 +34,14 @@ const Login = ()=>{
                             placeholder="Enter password" 
                             className="p-4 my-4 w-full bg-gray-800 rounded-md"
                     />
-                    <button className="p-4 my-6 w-full rounded-lg bg-red-700">{signInForm ? "Sign in" : "Sign up"}</button>
+                    <button 
+                            className="p-4 my-6 w-full rounded-lg bg-red-700"
+                            onClick={handleButtonClick}
+                        >
+                        {
+                            signInForm ? "Sign in" : "Sign up" 
+                        }
+                    </button>
                     <p className="py-4 cursor-pointer" onClick={handleSignInForm}>
                         {signInForm ? "New to Netflix? Sign Up now." : "Already registered? Sign in now."} 
                     </p>
