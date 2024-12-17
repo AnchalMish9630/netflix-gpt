@@ -3,9 +3,9 @@ import { Header } from "./Header";
 import { checkValidateData } from "../utils/validate";
 
 const Login = ()=>{
-    const[signInForm, setSignInForm] = useState(true);
+    const[isSignInForm, isSetSignInForm] = useState(true);
     const handleSignInForm = ()=>{
-        setSignInForm(!signInForm);
+        isSetSignInForm(!isSignInForm);
     }
     const handleButtonClick = ()=>{
         // checkValidateData
@@ -20,8 +20,8 @@ const Login = ()=>{
                 />
                 </div>
                 <form className="w-3/12 absolute my-36 mx-auto p-12 bg-black right-0 left-0 text-white rounded-lg bg-opacity-95">
-                    <h1 className="font-bold text-[36px]"> {signInForm ? "Sign in" : "Sign up"} </h1>
-                    {!signInForm && 
+                    <h1 className="font-bold text-[36px]"> {isSignInForm ? "Sign in" : "Sign up"} </h1>
+                    {!isSignInForm && 
                      <input type="text"
                            placeholder="Enter full name" 
                            className="p-4 my-4 w-full bg-gray-800 rounded-md" 
@@ -40,11 +40,11 @@ const Login = ()=>{
                             onClick={handleButtonClick}
                         >
                         {
-                            signInForm ? "Sign in" : "Sign up" 
+                            isSignInForm ? "Sign in" : "Sign up" 
                         }
                     </button>
                     <p className="py-4 cursor-pointer" onClick={handleSignInForm}>
-                        {signInForm ? "New to Netflix? Sign Up now." : "Already registered? Sign in now."} 
+                        {isSignInForm ? "New to Netflix? Sign Up now." : "Already registered? Sign in now."} 
                     </p>
                 </form>
                
