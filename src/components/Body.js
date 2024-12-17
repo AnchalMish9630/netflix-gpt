@@ -14,7 +14,7 @@ import { RouterProvider } from 'react-router-dom'
       },
       {
         path: "/browse",
-        element: <Browse /> // only for authenticzte users
+        element: <Browse /> // only for authenticate users
       }
     ]
   )
