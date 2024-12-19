@@ -8,7 +8,7 @@ const Login = ()=>{
         isSetSignInForm(!isSignInForm);
     }
     const handleButtonClick = ()=>{
-        // checkValidateData
+        //  checkValidateData
     }
         return(
             <div> 
@@ -19,7 +19,9 @@ const Login = ()=>{
                 alt= "bg-img"
                 />
                 </div>
-                <form className="w-3/12 absolute my-36 mx-auto p-12 bg-black right-0 left-0 text-white rounded-lg bg-opacity-95">
+                <form className="w-3/12 absolute my-36 mx-auto p-12 bg-black right-0 left-0 text-white rounded-lg bg-opacity-95"
+                    onSubmit={(e)=>e.preventDefault()}
+                    >
                     <h1 className="font-bold text-[36px]"> {isSignInForm ? "Sign in" : "Sign up"} </h1>
                     {!isSignInForm && 
                      <input type="text"
