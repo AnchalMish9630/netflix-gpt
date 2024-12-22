@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Header } from "./Header";
 import { checkValidateData } from "../utils/validate";
 
 const Login = ()=>{
     const[isSignInForm, isSetSignInForm] = useState(true);
+    const [message, setMessage] = useState(null);
     const handleSignInForm = ()=>{
         isSetSignInForm(!isSignInForm);
     }
+    const email = useRef(null);
+    const password = useRef(null);
+
     const handleButtonClick = ()=>{
-        //  checkValidateData
+    const errorMessage =  checkValidateData(email.current.value, password.current.value);
+    setMessage(errorMessage);
+
     }
         return(
             <div> 
@@ -32,11 +38,13 @@ const Login = ()=>{
                            placeholder="Enter email address" 
                            className="p-4 my-4 w-full bg-gray-800 rounded-md" 
                     />
+                     <p className="font-bold text-lg">{message}</p>
                     <input 
                             type="password" 
                             placeholder="Enter password" 
                             className="p-4 my-4 w-full bg-gray-800 rounded-md"
                     />
+                    <p className="font-bold text-lg">{message}</p>
                     <button 
                             className="p-4 my-6 w-full rounded-lg bg-red-700"
                             onClick={handleButtonClick}
