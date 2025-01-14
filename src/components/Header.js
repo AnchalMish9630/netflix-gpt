@@ -7,5 +7,5 @@ export const Header = () => {
     alt = "logo-img"/>
    </div>
    
-  )drfcgvhbjnmkl,
+  )
 }
