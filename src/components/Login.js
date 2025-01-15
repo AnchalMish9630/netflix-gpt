@@ -10,12 +10,17 @@ const Login = ()=>{
     }
     const email = useRef(null);
     const password = useRef(null);
+    const name = useRef(null);
 
     const handleButtonClick = ()=>{
-    const errorMessage =  checkValidateData(email.current.value, password.current.value);
+    const errorMessage =  checkValidateData(email.current.value, password.current.value, !isSignInForm ? name.current.value : "");
     setMessage(errorMessage);
-        console.log(errorMessage);
-        console.log(email.current.value, password.current.value);
+    // Sign-in/ Sign-up logic after valiodation
+    // if(message === null) OR 
+    if(message) return;    //if msg is there that means some error is there , program will stop otherwise move to account creation
+    // if msg exist i,e. error : then user needs to sign-in/sign-up
+
+
     }
         return(
             <div> 
@@ -31,21 +36,22 @@ const Login = ()=>{
                     >
                     <h1 className="font-bold text-[36px]"> {isSignInForm ? "Sign in" : "Sign up"} </h1>
                     {!isSignInForm && 
-                     <input type="text"
+                     <input ref={name} 
+                           type="text"
                            placeholder="Enter full name" 
                            className="p-4 my-4 w-full bg-gray-800 rounded-md" 
                     />}
-                    <input type="text"
+                    <input ref={email}
+                           type="text"
                            placeholder="Enter email address" 
                            className="p-4 my-4 w-full bg-gray-800 rounded-md" 
                     />
-                     <p className="font-bold text-lg">{message}</p>
-                    <input 
+                    <input  ref={password}   // by this get the refrence of the input box.
                             type="password" 
                             placeholder="Enter password" 
                             className="p-4 my-4 w-full bg-gray-800 rounded-md"
                     />
-                    <p className="font-bold text-lg">{message}</p>
+                    <p className="font-bold text-lg text-red-500 py-2">{message}</p>
                     <button 
                             className="p-4 my-6 w-full rounded-lg bg-red-700"
                             onClick={handleButtonClick}
