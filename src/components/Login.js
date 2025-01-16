@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
 import { checkValidateData } from "../utils/validate";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = ()=>{
     const[isSignInForm, isSetSignInForm] = useState(true);
@@ -20,8 +22,33 @@ const Login = ()=>{
     if(message) return;    //if msg is there that means some error is there , program will stop otherwise move to account creation
     // if msg exist i,e. error : then user needs to sign-in/sign-up
 
-
+    if(!isSignInForm){
+        createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            console.log("User signed up..", user)
+            })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setMessage(errorCode+errorMessage);
+    });
     }
+    else{
+        signInWithEmailAndPassword(auth,  email.current.value, password.current.value)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log("User signed up..", user)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setMessage(errorCode+errorMessage);
+    });
+    }
+  }
         return(
             <div> 
                 <Header />
