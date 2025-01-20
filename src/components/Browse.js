@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Header } from './Header';
 
 console.log("This is 2025..........First commit")
 const Browse = () => {
   return (
-    <div>Browse</div>
+    <div>
+      <Header />
+    </div>
    
   )
 }

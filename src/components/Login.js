@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
 import { checkValidateData } from "../utils/validate";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -29,8 +29,16 @@ const Login = ()=>{
         .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
-            console.log("User signed up..", user)
-            navigate("/browse");
+            // currently after this api display name is going null, so update the display name with the name we are entering in name input box
+            updateProfile(auth.currentUser, {
+                displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+              }).then(() => {
+                navigate("/browse");
+              }).catch((error) => {
+               setMessage(error.message);
+              });
+              
+           
             })
         .catch((error) => {
             const errorCode = error.code;
