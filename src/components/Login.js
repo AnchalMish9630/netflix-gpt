@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_LOGO } from "../utils/constant";
 
 const Login = ()=>{
     const[isSignInForm, isSetSignInForm] = useState(true);
@@ -34,7 +35,8 @@ const Login = ()=>{
             const user = userCredential.user;
             // currently after this api display name is going null, so update the display name with the name we are entering in name input box
             updateProfile(auth.currentUser, {
-                displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                displayName: name.current.value, 
+                photoURL: USER_LOGO
               }).then(() => {
                 const {uid, email, displayName} = user; //doubt ...........
                 dispatch(addUser({
