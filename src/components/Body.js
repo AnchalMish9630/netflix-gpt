@@ -24,7 +24,7 @@ import { addUser, removeUser } from '../utils/userSlice'
     ]
   )
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const {uid, email, displayName} = user;
         console.log(user);
@@ -37,8 +37,9 @@ import { addUser, removeUser } from '../utils/userSlice'
           dispatch(removeUser());
       }
     });
+    return ()=>unsubscribe();
     
-  })
+  }, []);
 
   return (
     <div>   
