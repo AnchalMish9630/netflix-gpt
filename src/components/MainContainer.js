@@ -8,11 +8,11 @@ const MainContainer = ()=>{
     console.log(movies, "Hello");
     if(!movies) return;
     const  mainMovie = movies[0]
-    const {original_title, id, overview} = mainMovie
+    // const {original_title, id, overview} = mainMovie
     return(
         <div>
              Main Container  
-             <VideoTitle title={original_title} overview={overview}/>      
+             {/* <VideoTitle title={original_title} overview={overview}/>       */}
              <VideoBackground />
              
         </div>
