@@ -6,7 +6,18 @@ import openai from "../utils/openai";
 
 const GptSearchBar = ()=>{
 
-   
+    const searchText = useRef(null);
+
+    const onHandleSearchClick = async()=>{
+        const gpt = "give some funny movie"+ searchText.current.value
+        const completion = await openai.chat.completions.create({
+            messages: [{ role: 'user', content: gpt }],
+            model: 'gpt-3.5-turbo',
+          });
+        
+        console.log(completion.choices);
+      
+    }
     const langKey = useSelector((store)=> store.config.language)
     return(
         <div className="pt-[10%] flex justify-center">
