@@ -49,8 +49,8 @@ export const Header = () => {
     dispatch(changeLanguage(e.target.value))
   }
   return (
-    <div className='absolute px-12  py-6 bg-gradient-to-b from-black z-10 w-screen flex justify-between'>
-    <img className= 'w-[200px]' src={APP_LOGO}    alt = "logo-img"/>
+    <div className='absolute px-12  py-6 bg-gradient-to-b from-black z-10 w-screen flex flex-col md:flex-row justify-between '>
+    <img className= 'w-[200px] mx-auto md:mx-0' src={APP_LOGO}    alt = "logo-img"/>
      {user && <div className='flex p-2'>
       
       {showGptSearch && 
