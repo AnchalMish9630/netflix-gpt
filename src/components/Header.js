@@ -49,9 +49,9 @@ export const Header = () => {
     dispatch(changeLanguage(e.target.value))
   }
   return (
-    <div className='absolute px-12  py-6 bg-gradient-to-b from-black z-10 w-screen flex flex-col md:flex-row justify-between '>
-    <img className= 'w-[200px] mx-auto md:mx-0' src={APP_LOGO}    alt = "logo-img"/>
-     {user && <div className='flex p-2'>
+   <div className='absolute md:px-12 px-4  py-6 bg-gradient-to-b from-black md:z-10 z-40 w-screen flex flex-row justify-between '>   
+    <img className= 'md:w-[200px] w-[150px]' src={APP_LOGO}    alt = "logo-img"/>
+     {user && <div className='flex md:p-2 pl-2'>
       
       {showGptSearch && 
       (<select className='p-2 m-2 bg-gray-900 text-white' onChange={handleChange}>
@@ -63,20 +63,30 @@ export const Header = () => {
         <option value="hi">हिन्दी</option> */}
        </select>)
     }
-      <button className='py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg font-bold'
+      <button
+         className="
+    py-2 px-4 mx-4 my-2 
+    border border-white text-white rounded-full
+    hover:bg-white hover:text-black transition-all duration-200
+    font-semibold
+
+    md:bg-red-700 md:text-white md:rounded-lg md:border-none
+    md:hover:bg-red-800 md:hover:text-white
+  "
+              //  className=' py-2 px-4 mx-4 my-2 bg-red-700 text-white rounded-lg font-bold'
       /* Logic for toggle using state variable.. */
       //  onClick={() => setShowGptSearch(!showGptSearch)}
         onClick={handleGptSearchClick}
-       >{!showGptSearch ? "GPT Search" : "Home Page"}</button>
+       >{!showGptSearch ? "SearchGPT" : "Home"}</button>
        
       <div className='flex flex-col'>
       <img
-        className='w-12 h-12'
+       className='w-12 h-12 hidden md:block'
         src= {USER_LOGO}
         alt="User Profile"
       >
       </img>
-      <button className="font-bold text-white" onClick={handleSignout }>Sign out</button>
+      <button className="font-bold text-white md:pt-0 pt-4" onClick={handleSignout }>Log Out</button>
       </div>
      </div>}
     
