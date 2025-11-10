@@ -16,6 +16,7 @@ const Browse = () => {
    const showGptSearch = useSelector(store=>store.gptSlice.showGptSearch);
 
   useNowPlayingMovie();
+  console.log(useNowPlayingMovie(), "hello");
   useTopRatedMovie();
   usePopularMovie();
   useUpcomingMovie();
